@@ -9,8 +9,7 @@ function SingleProduct() {
   const fetchAsyncSingleProduct = useAppStore(
     (state) => state.fetchAsyncSingleProduct
   );
-  // const cart = useAppStore((state) => state.cart);
-  const [cart, setCart] = useState([]);
+  const handleAddCart = useAppStore((state) => state.handleAddToCart);
   const getProductSingle = useAppStore((state) => state.getProductSingle);
   const [quantity, setQuantity] = useState(0);
   const increase = () => {
@@ -53,42 +52,10 @@ function SingleProduct() {
     // Memanggil fungsi fetchData yang bersifat asynchronous
     fetchData();
   }, [id]);
-  const addTocart = (product, kuantitas) => {
-    // find item same in cart
-    if (kuantitas == 0) {
-      alert("Please add Quantity");
-    }
-    const isItemInCart = cart.find((item) => item.id === product.id);
-    if (isItemInCart) {
-      const tempCart = cart.map((item) => {
-        if (item.id === product.id) {
-          let tempQty = item.quantity + kuantitas;
-          let tempTotalPrice = item.price * tempQty;
-          return {
-            ...item,
-            quantity: tempQty,
-            totalPrice: tempTotalPrice,
-          };
-        } else {
-          return item;
-        }
-      });
-      setCart(tempCart);
-    } else {
-      setCart([
-        {
-          ...product,
-          quantity: kuantitas,
-          totalPrice: product.price * kuantitas,
-        },
-      ]);
-    }
-  };
-  console.log("cart", cart);
   return isLoading ? (
     <div className="loading loading-infinity loading-lg text-primary absolute top-[50%] left-[50%] translate-y-[50%]"></div>
   ) : (
-    <div className="w-[90%] mx-auto my-5 flex overflow-hidden h-[450px] shadow-lg bg-white">
+    <div className="w-[90%] mx-auto my-5 p-1 flex overflow-hidden h-[450px] shadow-lg bg-white">
       <div className="w-1/2  overflow-hidden">
         <div className="w-full h-[70%] overflow-hidden">
           <img
@@ -181,7 +148,7 @@ function SingleProduct() {
               <FontAwesomeIcon icon={faCartArrowDown} />
               <button
                 className="text-[12px] cursor-pointer"
-                onClick={() => addTocart(getProductSingle, quantity)}
+                onClick={() => handleAddCart(getProductSingle, quantity)}
               >
                 Add to Cart
               </button>
