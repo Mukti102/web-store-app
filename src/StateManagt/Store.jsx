@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import axios from "axios";
+import { signInWithPopup } from "firebase/auth";
+import { getauth, provider } from "../config/firebase/Firebase";
 
 const AppStore = create(
   persist(
@@ -11,6 +13,26 @@ const AppStore = create(
       isSidebar: false,
       getProductSingle: [],
       cart: [],
+      user: [],
+      logout: () => {
+        set({ user: "" });
+      },
+      loginWithGoogle: () => {
+        signInWithPopup(getauth, provider).then((res) => {
+          set({ user: res.user });
+        });
+      },
+      handleDeleteCart: (id) => {
+        let findIndex = "";
+        AppStore.getState().cart.map((item, index) => {
+          if (item.id === id) {
+            findIndex = item;
+          }
+        });
+        set((state) => ({
+          cart: state.cart.filter((item) => item.id !== findIndex.id),
+        }));
+      },
       fetchAsyncSingleProduct: (url) => {
         return new Promise((resolve, reject) => {
           axios
@@ -23,6 +45,38 @@ const AppStore = create(
               reject("fetch single product", err);
             });
         });
+      },
+      increaseQty: (id) => {
+        const tempCart = AppStore.getState().cart.map((item) => {
+          if (item.id === id) {
+            let tempQty = item.quantity + 1;
+            let tempTotalPrice = tempQty * item.price;
+            return {
+              ...item,
+              quantity: tempQty,
+              totalPrice: tempTotalPrice,
+            };
+          } else {
+            return;
+          }
+        });
+        set({ cart: tempCart });
+      },
+      decreaseQty: (id) => {
+        const tempCart = AppStore.getState().cart.map((item) => {
+          if (item.id === id) {
+            let tempQty = item.quantity - 1;
+            let tempTotalPrice = tempQty * item.price;
+            return {
+              ...item,
+              quantity: tempQty,
+              totalPrice: tempTotalPrice,
+            };
+          } else {
+            return;
+          }
+        });
+        set({ cart: tempCart });
       },
       handleAddToCart: (product, qty) => {
         // find item same in cart
@@ -95,5 +149,4 @@ const AppStore = create(
     }
   )
 );
-
 export const useAppStore = AppStore;
