@@ -3,6 +3,7 @@ import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { useAppStore } from "../../StateManagt/Store";
 import { useParams } from "react-router";
+import { formatHarga } from "../../action/formatPrice";
 function SingleProduct() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
@@ -112,13 +113,16 @@ function SingleProduct() {
           <div className="w-full bg-slate-200 rounded-md px-3 py-5 flex flex-col gap-2">
             <div className="flex items-center gap-2">
               <span className="line-through text-[11px] text-slate-500">
-                ${getProductSingle.price + getProductSingle.discountPercentage}
+                Rp
+                {formatHarga(
+                  getProductSingle.price + getProductSingle.discountPercentage
+                )}
               </span>
               <span className="text-[12px]">(Inclusive of all)</span>
             </div>
             <div className="flex  gap-2">
               <div className="text-primary font-semibold text-xl">
-                <h1>${getProductSingle.price}</h1>
+                <h1>Rp{formatHarga(getProductSingle.price)}</h1>
               </div>
               <div className="text-[10px] h-max w-max bg-primary px-2 py-[1px] text-slate-100 rounded-sm">
                 <span>{getProductSingle.discountPercentage}% Off</span>
@@ -144,12 +148,12 @@ function SingleProduct() {
             </div>
           </div>
           <div className="flex gap-4">
-            <div className="flex cursor-pointer px-4 gap-2 bg-primary items-center py-2 text-white text-sm ">
+            <div
+              className="flex cursor-pointer px-4 gap-2 bg-primary items-center py-2 text-white text-sm "
+              onClick={() => handleAddCart(getProductSingle, quantity)}
+            >
               <FontAwesomeIcon icon={faCartArrowDown} />
-              <button
-                className="text-[12px] cursor-pointer"
-                onClick={() => handleAddCart(getProductSingle, quantity)}
-              >
+              <button className="text-[12px] cursor-pointer">
                 Add to Cart
               </button>
             </div>

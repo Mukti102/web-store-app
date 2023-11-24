@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAppStore } from "../../StateManagt/Store";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { formatHarga } from "../../action/formatPrice";
 function Products() {
   const products = useAppStore((state) => state.products);
   const [isLoading, setIsLoading] = useState(false);
@@ -50,10 +51,10 @@ function Products() {
                 </div>
                 <div className="w-full py-3 text-sm  flex gap-2  justify-center">
                   <span className="text-[10px] line-through">
-                    ${item.price + item.discountPercentage}
+                    Rp{formatHarga(item.price + item.discountPercentage)}
                   </span>
                   <span className="text-[13px] font-semibold">
-                    ${item.price}
+                    Rp{formatHarga(item.price)}
                   </span>
                   <span className="text-[10px] text-primary font-semibold">
                     ({item.discountPercentage}%Of)

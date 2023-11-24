@@ -3,16 +3,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useAppStore } from "../StateManagt/Store";
 import { Link } from "react-router-dom";
+import { formatHarga } from "../action/formatPrice";
 function CartIcon() {
   const carts = useAppStore((state) => state.cart);
   return (
     <div className="relative  group/item">
-      <button className="text-slate-100 relative text-lg">
-        <FontAwesomeIcon icon={faCartShopping} />
-        <div className="w-4 h-4 bg-green-600 text-slate-100 text-center flex items-center justify-center text-[11px] rounded-full absolute -right-2 -top-1">
-          {carts.length}
-        </div>
-      </button>
+      <Link to={"/cart"}>
+        <button className="text-slate-100 relative text-lg">
+          <FontAwesomeIcon icon={faCartShopping} />
+          <div className="w-4 h-4 bg-green-600 text-slate-100 text-center flex items-center justify-center text-[11px] rounded-full absolute -right-2 -top-1">
+            {carts.length}
+          </div>
+        </button>
+      </Link>
       <div className="w-60 h-80 absolute shadow-md  invisible z-50 -left-60 px-4 py-2 bg-white group-hover/item:visible transition-all delay-100 ease-in">
         <div className="w-max mx-auto">
           <h1>Products</h1>
@@ -39,7 +42,7 @@ function CartIcon() {
                   <div className="text-[7px]">{item.title}</div>
                 </div>
                 <div className="text-[12px] text-primary font-semibold ">
-                  ${item.totalPrice}
+                  Rp{formatHarga(item.totalPrice)}
                 </div>
               </div>
             );

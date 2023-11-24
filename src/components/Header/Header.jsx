@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +9,7 @@ function Header() {
   const login = useAppStore((state) => state.loginWithGoogle);
   const user = useAppStore((state) => state.user);
   const logout = useAppStore((state) => state.logout);
-  console.log(user);
+
   return (
     <header className="bg-primary min-w-full pt-2">
       <div className="flex w-full justify-between px-12 py-2">

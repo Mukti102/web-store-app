@@ -12,10 +12,11 @@ function Sidebare() {
   useEffect(() => {
     fetchCategories("https://dummyjson.com/products/categories");
   }, []);
+
   return (
     <div
       className={
-        "w-64 h-full bg-slate-50 absolute z-10  top-0 pl-4 pr-2 py-5 transition-all delay-200" +
+        "sidebar w-64 h-full bg-slate-50 absolute z-10  top-0 pl-4 pr-2 py-5 transition-all delay-200" +
         (sidebar ? " -left-0" : " -left-96")
       }
     >

@@ -15,13 +15,18 @@ const AppStore = create(
       cart: [],
       user: [],
       logout: () => {
-        set({ user: "" });
+        setTimeout(() => {
+          alert("logout succes");
+          set({ user: "" });
+          set((state) => ({ cart: (state.cart = []) }));
+        }, 1000);
       },
       loginWithGoogle: () => {
         signInWithPopup(getauth, provider).then((res) => {
           set({ user: res.user });
         });
       },
+      resetCart: () => set((state) => ({ cart: (state.cart = []) })),
       handleDeleteCart: (id) => {
         let findIndex = "";
         AppStore.getState().cart.map((item, index) => {
@@ -79,36 +84,46 @@ const AppStore = create(
         set({ cart: tempCart });
       },
       handleAddToCart: (product, qty) => {
-        // find item same in cart
-        if (qty == 0) {
-          alert("please add quantity");
+        // cek is User have login
+        if (AppStore.getState().user == 0) {
+          alert("Harap Login terlebih dahulu");
           return;
         } else {
-          const isItemInCart = AppStore.getState().cart.find(
-            (item) => item.id === product.id
-          );
-          if (isItemInCart) {
-            const tempCart = AppStore.getState().cart.map((item) => {
-              if (item.id === product.id) {
-                let tempQty = item.quantity + qty;
-                let tempTotalPrice = item.price * tempQty;
-                return {
-                  ...item,
-                  quantity: tempQty,
-                  totalPrice: tempTotalPrice,
-                };
-              } else {
-                return item;
-              }
-            });
-            set({ cart: tempCart });
+          // find item same in cart
+          if (qty == 0) {
+            alert("please add quantity");
+            return;
           } else {
-            set({
-              cart: [
-                ...AppStore.getState().cart,
-                { ...product, quantity: qty, totalPrice: qty * product.price },
-              ],
-            });
+            const isItemInCart = AppStore.getState().cart.find(
+              (item) => item.id === product.id
+            );
+            if (isItemInCart) {
+              const tempCart = AppStore.getState().cart.map((item) => {
+                if (item.id === product.id) {
+                  let tempQty = item.quantity + qty;
+                  let tempTotalPrice = item.price * tempQty;
+                  return {
+                    ...item,
+                    quantity: tempQty,
+                    totalPrice: tempTotalPrice,
+                  };
+                } else {
+                  return item;
+                }
+              });
+              set({ cart: tempCart });
+            } else {
+              set({
+                cart: [
+                  ...AppStore.getState().cart,
+                  {
+                    ...product,
+                    quantity: qty,
+                    totalPrice: qty * product.price,
+                  },
+                ],
+              });
+            }
           }
         }
       },

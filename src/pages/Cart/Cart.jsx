@@ -2,6 +2,7 @@ import React from "react";
 import { useAppStore } from "../../StateManagt/Store";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { formatHarga } from "../../action/formatPrice";
 function Cart() {
   const carts = useAppStore((state) => state.cart);
   const deleteCart = useAppStore((state) => state.handleDeleteCart);
@@ -14,8 +15,8 @@ function Cart() {
   return (
     <div className="w-[80%] mx-auto ">
       <div className="overflow-x-auto h-96">
-        <table className="table table-sm">
-          <thead className="bg-white ">
+        <table className="table table-sm shadow-md">
+          <thead className="bg-white">
             <tr className="text-sm text-slate-600">
               <th className="text-center">No</th>
               <th>Product</th>
@@ -29,7 +30,7 @@ function Cart() {
             {carts.map((item, index) => {
               return (
                 <tr key={item.id}>
-                  <th className="text-center text-slate-500">{index}</th>
+                  <th className="text-center text-slate-500">{index + 1}</th>
                   <td className="text-slate-500">{item.title}</td>
                   <td className="text-center text-slate-500">${item.price}</td>
                   <td>
@@ -52,7 +53,7 @@ function Cart() {
                     </div>
                   </td>
                   <td className="text-center text-primary text-[13px] font-semibold">
-                    ${item.totalPrice}
+                    Rp{formatHarga(item.totalPrice)}
                   </td>
                   <td>
                     <button
@@ -67,7 +68,7 @@ function Cart() {
             })}
           </tbody>
         </table>
-        <div className="w-full bg-white flex justify-between  py-2 px-3">
+        <div className="w-full bg-white flex justify-between  py-2 px-3 mt-5 shadow-md">
           <button className="btn-sm py-1 border-[1.3px]  border-primary  flex items-center gap-2 h-max text-primary hover:bg-primary hover:text-white">
             <FontAwesomeIcon icon={faTrash} />
             <div>CLEAR CART</div>
@@ -76,7 +77,7 @@ function Cart() {
             <h1 className="text-[12px]">
               Total({carts.length} item):
               <span className=" ml-[5px] font-semibold text-sm text-primary">
-                ${amountPriceAllCart}
+                Rp{formatHarga(amountPriceAllCart)}
               </span>{" "}
             </h1>
             <button className=" bg-primary text-white px-7 py-[6px] text-sm hover:bg-opacity-80">
