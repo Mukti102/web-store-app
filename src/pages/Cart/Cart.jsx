@@ -27,7 +27,7 @@ function Cart() {
             </tr>
           </thead>
           <tbody className="bg-white">
-            {carts.map((item, index) => {
+            {carts?.map((item, index) => {
               return (
                 <tr key={item.id}>
                   <th className="text-center sm:text-sm text-[10px] text-slate-500">

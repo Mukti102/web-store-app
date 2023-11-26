@@ -42,7 +42,7 @@ function Products() {
         <h1>SEE OUR PRODUCTS</h1>
       </div>
       <div className="sm:w-[90%] flex flex-wrap sm:gap-5 justify-center mx-auto sm:my-8 my-4 gap-3 ">
-        {products.products.map((item) => {
+        {products?.products?.map((item) => {
           return (
             <Link to={`/products/${item.id}`} key={item.id}>
               <div

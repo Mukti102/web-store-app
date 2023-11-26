@@ -38,7 +38,7 @@ function Categories() {
         <h1>{category}</h1>
       </div>
       <div className="sm:w-[90%] flex flex-wrap sm:gap-5 justify-center mx-auto sm:my-8 my-4 gap-3">
-        {categoriesProducts.map((item, index) => {
+        {categoriesProducts?.map((item, index) => {
           return (
             <Link to={`/products/${item.id}`} key={item.id}>
               <div

@@ -30,7 +30,7 @@ function Sidebare() {
         </button>
       </div>
       <div className="w-full sm:h-screen sm:overflow-y-scroll scroll bg-slate-50 pb-5 sm:px-3 h-max">
-        {categories.data.map((item, index) => {
+        {categories?.data?.map((item, index) => {
           return (
             <Link to={`/category/${item}`} key={index}>
               <div className="py-1 sm:mt-5 border-b-[1.9px] cursor-pointer capitalize hover:text-primary flex items-center border-slate-200 sm:text-sm text-[8px]">
