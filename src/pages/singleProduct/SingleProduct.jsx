@@ -52,7 +52,8 @@ function SingleProduct() {
 
     // Memanggil fungsi fetchData yang bersifat asynchronous
     fetchData();
-  }, [id]);
+  }, [id, fetchAsyncSingleProduct]);
+  console.log("SINGLE PRODUCT", getProductSingle);
   return isLoading ? (
     <div className="loading loading-infinity loading-lg text-primary absolute top-[50%] left-[50%] translate-y-[50%]"></div>
   ) : (
@@ -60,26 +61,41 @@ function SingleProduct() {
       <div className="sm:w-1/2 sm:h-full overflow-hidden h-60 w-full bg-black">
         <div className="w-full sm:h-[70%] h-full overflow-hidden">
           <img
-            src={getProductSingle?.thumbnail || getProductSingle?.images[0]}
+            src={
+              getProductSingle?.thumbnail ??
+              "https://tse3.mm.bing.net/th?id=OIP.2JkSNigfTvmaMwVkzc7A9wHaHa&pid=Api&P=0&h=180"
+            }
             className="sm:w-full h-full sm:h-max object-center"
           />
         </div>
         <div className="flex w-full sm:h-[30%] h-0 bg-black">
           <div className="w-1/3 h-full overflow-hidden">
             <img
-              src={getProductSingle?.images[1]}
+              src={
+                getProductSingle?.images && getProductSingle.images[1]
+                  ? getProductSingle.images[1]
+                  : "https://tse3.mm.bing.net/th?id=OIP.2JkSNigfTvmaMwVkzc7A9wHaHa&pid=Api&P=0&h=180"
+              }
               className="w-full h-full object-cover"
             />
           </div>
           <div className="w-1/3 h-full overflow-hidden">
             <img
-              src={getProductSingle?.images[2]}
+              src={
+                getProductSingle?.images && getProductSingle.images[2]
+                  ? getProductSingle.images[2]
+                  : "https://tse3.mm.bing.net/th?id=OIP.2JkSNigfTvmaMwVkzc7A9wHaHa&pid=Api&P=0&h=180"
+              }
               className="w-full h-full object-cover"
             />
           </div>
           <div className="w-1/3 h-full overflow-hidden">
             <img
-              src={getProductSingle?.images[3]}
+              src={
+                getProductSingle?.images && getProductSingle.images[3]
+                  ? getProductSingle.images[3]
+                  : "https://tse3.mm.bing.net/th?id=OIP.2JkSNigfTvmaMwVkzc7A9wHaHa&pid=Api&P=0&h=180"
+              }
               className="w-full h-full object-cover"
             />
           </div>
@@ -92,7 +108,7 @@ function SingleProduct() {
               -{getProductSingle?.title}-
             </h1>
           </div>
-          {/* <hr /> */}
+          <hr />
           <span className="sm:text-[13px] text-[9px]">
             {getProductSingle?.description}
           </span>
