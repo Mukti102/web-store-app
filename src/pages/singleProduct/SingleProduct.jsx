@@ -60,26 +60,26 @@ function SingleProduct() {
       <div className="sm:w-1/2 sm:h-full overflow-hidden h-60 w-full bg-black">
         <div className="w-full sm:h-[70%] h-full overflow-hidden">
           <img
-            src={getProductSingle.thumbnail || getProductSingle.images[0]}
+            src={getProductSingle?.thumbnail || getProductSingle?.images[0]}
             className="sm:w-full h-full sm:h-max object-center"
           />
         </div>
         <div className="flex w-full sm:h-[30%] h-0 bg-black">
           <div className="w-1/3 h-full overflow-hidden">
             <img
-              src={getProductSingle.images[1]}
+              src={getProductSingle?.images[1]}
               className="w-full h-full object-cover"
             />
           </div>
           <div className="w-1/3 h-full overflow-hidden">
             <img
-              src={getProductSingle.images[2]}
+              src={getProductSingle?.images[2]}
               className="w-full h-full object-cover"
             />
           </div>
           <div className="w-1/3 h-full overflow-hidden">
             <img
-              src={getProductSingle.images[3]}
+              src={getProductSingle?.images[3]}
               className="w-full h-full object-cover"
             />
           </div>
@@ -89,28 +89,28 @@ function SingleProduct() {
         <div className="flex sm:gap-5 gap-3 flex-col">
           <div className="sm:mx-0 mx-auto">
             <h1 className="font-semibold sm:text-xl text-lg">
-              -{getProductSingle.title}-
+              -{getProductSingle?.title}-
             </h1>
           </div>
           {/* <hr /> */}
           <span className="sm:text-[13px] text-[9px]">
-            {getProductSingle.description}
+            {getProductSingle?.description}
           </span>
           <div className="sm:flex sm:w-full  ">
             <div className="text-primary w-max sm:text-sm px-3 sm:border-r-[1.2px] border-primary text-[12px]">
               Rating :
               <span className="text-slate-800 border-primary">
-                {getProductSingle.rating}
+                {getProductSingle?.rating}
               </span>
             </div>
             <div className="text-primary w-max sm:text-sm px-3 sm:border-r-[1.2px] border-primary text-[12px]">
               Brand :{" "}
-              <span className="text-slate-800">{getProductSingle.brand}</span>
+              <span className="text-slate-800">{getProductSingle?.brand}</span>
             </div>
             <div className="text-primary w-max sm:text-sm px-3 sm:border-r-[1.2px] border-primary text-[12px]">
               Category :{" "}
               <span className="text-slate-800">
-                {getProductSingle.category}
+                {getProductSingle?.category}
               </span>
             </div>
           </div>
@@ -119,7 +119,7 @@ function SingleProduct() {
               <span className="line-through sm:text-[11px] text-slate-500 text-[8px]">
                 Rp
                 {formatHarga(
-                  getProductSingle.price + getProductSingle.discountPercentage
+                  getProductSingle?.price + getProductSingle?.discountPercentage
                 )}
               </span>
               <span className="sm:text-[12px] text-[9px]">
@@ -128,10 +128,10 @@ function SingleProduct() {
             </div>
             <div className="flex gap-2">
               <div className="text-primary font-semibold sm:text-xl text-sm">
-                <h1>Rp{formatHarga(getProductSingle.price)}</h1>
+                <h1>Rp{formatHarga(getProductSingle?.price)}</h1>
               </div>
               <div className="text-[10px] h-max w-max bg-primary px-2 py-[1px] text-slate-100 rounded-sm">
-                <span>{getProductSingle.discountPercentage}% Off</span>
+                <span>{getProductSingle?.discountPercentage}% Off</span>
               </div>
             </div>
           </div>
