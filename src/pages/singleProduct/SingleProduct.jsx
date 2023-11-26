@@ -56,15 +56,15 @@ function SingleProduct() {
   return isLoading ? (
     <div className="loading loading-infinity loading-lg text-primary absolute top-[50%] left-[50%] translate-y-[50%]"></div>
   ) : (
-    <div className="w-[90%] mx-auto my-5 p-1 flex overflow-hidden h-[450px] shadow-lg bg-white">
-      <div className="w-1/2  overflow-hidden">
-        <div className="w-full h-[70%] overflow-hidden">
+    <div className="sm:w-[90%] mx-auto my-5 p-1 sm:flex overflow-hidden sm:h-[450px] shadow-lg bg-white h-max block justify-center w-[80%]">
+      <div className="sm:w-1/2 sm:h-full overflow-hidden h-60 w-full bg-black">
+        <div className="w-full sm:h-[70%] h-full overflow-hidden">
           <img
             src={getProductSingle.thumbnail || getProductSingle.images[0]}
-            className="w-full object-center"
+            className="sm:w-full h-full sm:h-max object-center"
           />
         </div>
-        <div className="flex w-full h-[30%] bg-black">
+        <div className="flex w-full sm:h-[30%] h-0 bg-black">
           <div className="w-1/3 h-full overflow-hidden">
             <img
               src={getProductSingle.images[1]}
@@ -85,43 +85,49 @@ function SingleProduct() {
           </div>
         </div>
       </div>
-      <div className="w-1/2 py-5 px-3">
-        <div className="flex gap-5 flex-col">
-          <div>
-            <h1 className="font-semibold text-xl">-{getProductSingle.title}</h1>
+      <div className="sm:w-1/2 sm:py-5 sm:px-3 w-full py-2 px-2 h-1/2">
+        <div className="flex sm:gap-5 gap-3 flex-col">
+          <div className="sm:mx-0 mx-auto">
+            <h1 className="font-semibold sm:text-xl text-lg">
+              -{getProductSingle.title}-
+            </h1>
           </div>
-          <hr />
-          <span className="text-[12px]">{getProductSingle.description}</span>
-          <div className="flex w-full">
-            <div className="text-primary w-max text-sm px-3 border-r-[1.2px] border-primary">
+          {/* <hr /> */}
+          <span className="sm:text-[13px] text-[9px]">
+            {getProductSingle.description}
+          </span>
+          <div className="sm:flex sm:w-full  ">
+            <div className="text-primary w-max sm:text-sm px-3 sm:border-r-[1.2px] border-primary text-[12px]">
               Rating :
               <span className="text-slate-800 border-primary">
                 {getProductSingle.rating}
               </span>
             </div>
-            <div className="text-primary w-max text-sm px-3 border-r-[1.2px] border-primary">
+            <div className="text-primary w-max sm:text-sm px-3 sm:border-r-[1.2px] border-primary text-[12px]">
               Brand :{" "}
               <span className="text-slate-800">{getProductSingle.brand}</span>
             </div>
-            <div className="text-primary w-max text-sm px-3">
+            <div className="text-primary w-max sm:text-sm px-3 sm:border-r-[1.2px] border-primary text-[12px]">
               Category :{" "}
               <span className="text-slate-800">
                 {getProductSingle.category}
               </span>
             </div>
           </div>
-          <div className="w-full bg-slate-200 rounded-md px-3 py-5 flex flex-col gap-2">
+          <div className="sm:w-full bg-slate-200 sm:rounded-md sm:px-3 sm:py-5 flex flex-col gap-2 px-2 py-1 w-[80%]">
             <div className="flex items-center gap-2">
-              <span className="line-through text-[11px] text-slate-500">
+              <span className="line-through sm:text-[11px] text-slate-500 text-[8px]">
                 Rp
                 {formatHarga(
                   getProductSingle.price + getProductSingle.discountPercentage
                 )}
               </span>
-              <span className="text-[12px]">(Inclusive of all)</span>
+              <span className="sm:text-[12px] text-[9px]">
+                (Inclusive of all)
+              </span>
             </div>
-            <div className="flex  gap-2">
-              <div className="text-primary font-semibold text-xl">
+            <div className="flex gap-2">
+              <div className="text-primary font-semibold sm:text-xl text-sm">
                 <h1>Rp{formatHarga(getProductSingle.price)}</h1>
               </div>
               <div className="text-[10px] h-max w-max bg-primary px-2 py-[1px] text-slate-100 rounded-sm">
@@ -129,18 +135,20 @@ function SingleProduct() {
               </div>
             </div>
           </div>
-          <div className="flex gap-2">
-            <div className="text-sm">Quantity</div>
-            <div className="bg-white text-sm border-[1px] border-slate-800 rounded-sm">
+          <div className="flex sm:gap-2 gap-1">
+            <div className="sm:text-sm text-[12px]">Quantity</div>
+            <div className="bg-white sm:text-sm border-[1px] border-slate-800 rounded-sm text-[12px]">
               <button
-                className=" px-2 border-r-[1px]  border-slate-700"
+                className="sm:px-2 px-1  border-r-[1px]  border-slate-700"
                 onClick={() => decrease()}
               >
                 -
               </button>
-              <span className="text-sm px-2">{quantity}</span>
+              <span className="sm:text-sm sm:px-2 px-1 text-[12px]">
+                {quantity}
+              </span>
               <button
-                className=" px-2 border-l-[1px]   border-slate-700"
+                className="sm:px-2 px-1  border-l-[1px]  border-slate-700"
                 onClick={() => increase()}
               >
                 +
@@ -149,16 +157,16 @@ function SingleProduct() {
           </div>
           <div className="flex gap-4">
             <div
-              className="flex cursor-pointer px-4 gap-2 bg-primary items-center py-2 text-white text-sm "
+              className="flex cursor-pointer sm:px-4 gap-2 bg-primary items-center sm:py-2 text-white sm:text-sm text-[10px] px-2 h-max py-1"
               onClick={() => handleAddCart(getProductSingle, quantity)}
             >
               <FontAwesomeIcon icon={faCartArrowDown} />
-              <button className="text-[12px] cursor-pointer">
+              <button className="sm:text-[12px] cursor-pointer text-[10px]">
                 Add to Cart
               </button>
             </div>
-            <div className="flex cursor-pointer px-4 gap-2 bg-primary items-center py-2 text-white text-sm ">
-              <span className="text-[12px]">Buy Now</span>
+            <div className="flex cursor-pointer sm:px-4 gap-2 bg-primary items-center sm:py-2 text-white sm:text-sm text-[10px] px-2 h-max py-1">
+              <span className="sm:text-[12px] text-[10px]">Buy Now</span>
             </div>
           </div>
         </div>

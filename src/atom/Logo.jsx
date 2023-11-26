@@ -7,16 +7,16 @@ function Logo() {
   const handleSidebar = useAppStore((state) => state.handleSidebar);
   return (
     <>
-      <div className="text-slate-100 flex gap-2 ">
+      <div className="text-slate-100 sm:flex sm:gap-2 gap-1 flex">
         <button onClick={handleSidebar}>
-          <FontAwesomeIcon icon={faBars} />
+          <FontAwesomeIcon icon={faBars} className="text-sm sm:text-xl" />
         </button>
         <Link to={"/"}>
-          <div className="flex gap-1 items-center cursor-pointer">
-            <span className="text-xl">
+          <div className="flex gap-1 sm:items-center cursor-pointer">
+            <span className="sm:text-xl text-lg">
               <FontAwesomeIcon icon={faBagShopping} />
             </span>
-            <h1 className="font-semibold">
+            <h1 className="font-semibold sm:text-sm sm:flex flex items-center text-sm">
               Snap <span className="font-normal">Up</span>
             </h1>
           </div>
