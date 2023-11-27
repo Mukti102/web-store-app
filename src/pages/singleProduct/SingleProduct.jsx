@@ -178,11 +178,11 @@ function SingleProduct() {
             >
               <FontAwesomeIcon icon={faCartArrowDown} />
               <button className="sm:text-[12px] cursor-pointer text-[11px]">
-                Add to Cart
+                keranjang
               </button>
             </div>
             <div className="flex cursor-pointer sm:px-4 gap-2 bg-primary items-center sm:py-2 text-white sm:text-sm text-[10px] px-2 h-max py-2">
-              <span className="sm:text-[12px] text-[11px]">Buy Now</span>
+              <span className="sm:text-[12px] text-[11px]">Beli sekarang</span>
             </div>
           </div>
         </div>

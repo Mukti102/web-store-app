@@ -20,9 +20,9 @@ function Cart() {
             <tr className="sm:text-sm text-slate-600 text-[10px]">
               <th className="text-center">No</th>
               <th>Product</th>
-              <th className="text-center">Price</th>
-              <th className="text-center">Quantity</th>
-              <th className="text-center">Total Price</th>
+              <th className="text-center">Harga</th>
+              <th className="text-center">Kuantitas</th>
+              <th className="text-center">Total Harga</th>
               <th className="text-center">Action</th>
             </tr>
           </thead>
@@ -37,12 +37,12 @@ function Cart() {
                     {item.title}
                   </td>
                   <td className="text-slate-800 sm:text-sm text-[10px]  text-center">
-                    ${item.price}
+                    Rp.{formatHarga(item.price)}
                   </td>
                   <td>
-                    <div className="bg-white w-max mx-auto sm:text-[12px] border-[1px] border-slate-400 rounded-sm text-[10px]">
+                    <div className="bg-white w-max mx-auto sm:text-[12px] border-[1px] border-slate-800 rounded-sm text-[10px]">
                       <button
-                        className="sm:px-2 border-r-[1px] font-semibold border-slate-400 sm:text-sm text-[10px] px-2"
+                        className="sm:px-2 border-r-[1px] font-semibold border-slate-800 sm:text-sm text-[10px] px-2"
                         onClick={() => decreaseQty(item.id)}
                       >
                         -
@@ -51,7 +51,7 @@ function Cart() {
                         {item.quantity}
                       </span>
                       <button
-                        className="sm:px-2 border-l-[1px] font-semibold border-slate-400 sm:text-sm text-[10px] px-2"
+                        className="sm:px-2 border-l-[1px] font-semibold border-slate-800 sm:text-sm text-[10px] px-2"
                         onClick={() => increaseQty(item.id)}
                       >
                         +
