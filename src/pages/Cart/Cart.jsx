@@ -33,25 +33,25 @@ function Cart() {
                   <th className="text-center sm:text-sm text-[10px] text-slate-500">
                     {index + 1}
                   </th>
-                  <td className="text-slate-500 sm:text-sm text-[10px]">
+                  <td className="text-slate-800 sm:text-sm text-[9px]">
                     {item.title}
                   </td>
-                  <td className="text-slate-500 sm:text-sm text-[10px]  text-center">
+                  <td className="text-slate-800 sm:text-sm text-[10px]  text-center">
                     ${item.price}
                   </td>
                   <td>
                     <div className="bg-white w-max mx-auto sm:text-[12px] border-[1px] border-slate-400 rounded-sm text-[10px]">
                       <button
-                        className="sm:px-2 border-r-[1px] font-semibold border-slate-400 sm:text-sm text-[10px] px-1"
+                        className="sm:px-2 border-r-[1px] font-semibold border-slate-400 sm:text-sm text-[10px] px-2"
                         onClick={() => decreaseQty(item.id)}
                       >
                         -
                       </button>
-                      <span className="sm:text-[12px] sm:px-2 text-slate-500 text-[9px] px-1 text-center">
+                      <span className="sm:text-[12px] sm:px-2 text-slate-500 text-[9px] px-2 text-center">
                         {item.quantity}
                       </span>
                       <button
-                        className="sm:px-2 border-l-[1px] font-semibold border-slate-400 sm:text-sm text-[10px] px-1"
+                        className="sm:px-2 border-l-[1px] font-semibold border-slate-400 sm:text-sm text-[10px] px-2"
                         onClick={() => increaseQty(item.id)}
                       >
                         +
@@ -80,7 +80,7 @@ function Cart() {
             <div className="sm:text-sm text-[9px]">CLEAR CART</div>
           </button>
           <div className="flex flex-col gap-1">
-            <h1 className="sm:text-[12px] text-[9px]">
+            <h1 className="sm:text-[12px] text-[9px] text-slate-800">
               Total({carts.length} item):
               <span className="ml-[5px] font-semibold sm:text-sm text-primary text-[9px]">
                 Rp{formatHarga(amountPriceAllCart)}

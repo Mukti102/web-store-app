@@ -9,9 +9,9 @@ function CartIcon() {
   return (
     <div className="relative  group/item">
       <Link to={"/cart"}>
-        <button className="text-slate-100 relative sm:text-lg text-sm">
+        <button className="text-slate-100 relative sm:text-lg text-lg">
           <FontAwesomeIcon icon={faCartShopping} />
-          <div className="sm:w-4 sm:h-4 bg-green-600 text-slate-100 text-center flex items-center justify-center sm:text-[11px] rounded-full absolute -right-2 -top-1 text-[8px] w-3 h-3">
+          <div className="sm:w-4 sm:h-4 bg-green-600 text-slate-100 text-center flex items-center justify-center sm:text-[11px] rounded-full absolute -right-2 -top-1 text-[10px] w-[13px] h-[13px]">
             {carts.length}
           </div>
         </button>

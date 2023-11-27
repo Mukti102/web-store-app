@@ -16,11 +16,11 @@ function Sidebare() {
   return (
     <div
       className={
-        "sidebar sm:w-64 sm:h-full bg-slate-50 absolute z-10 top-0 pl-4 pr-2 py-5 transition-all delay-200 h-max" +
+        "sidebar sm:w-64 sm:h-full bg-slate-50 absolute z-10 top-0 pl-4 pr-2 py-5 transition-all delay-200 h-screen w-48 text-slate-800" +
         (sidebar ? " -left-0" : " -left-96")
       }
     >
-      <div className="flex justify-between sm:text-lg  my-1 sm:pl-3 sm:mb-4 text-[10px] mb-1 gap-2">
+      <div className="flex justify-between sm:text-lg  my-1 sm:pl-3 sm:mb-4 text-[13px] mb-1 gap-2">
         <h1 className="font-semibold">ALL CATEGORIES</h1>
         <button
           className="font-semibold hover:text-primary"
@@ -33,7 +33,7 @@ function Sidebare() {
         {categories?.data?.map((item, index) => {
           return (
             <Link to={`/category/${item}`} key={index}>
-              <div className="py-1 sm:mt-5 border-b-[1.9px] cursor-pointer capitalize hover:text-primary flex items-center border-slate-200 sm:text-sm text-[8px]">
+              <div className="py-1 sm:mt-5 border-b-[1.9px] cursor-pointer capitalize hover:text-primary flex items-center border-slate-200 sm:text-sm text-[11px] text-slate-600 my-1">
                 {item}
               </div>
             </Link>

@@ -104,12 +104,12 @@ function SingleProduct() {
       <div className="sm:w-1/2 sm:py-5 sm:px-3 w-full py-2 px-2 h-1/2">
         <div className="flex sm:gap-5 gap-3 flex-col">
           <div className="sm:mx-0 mx-auto">
-            <h1 className="font-semibold sm:text-xl text-lg">
+            <h1 className="font-semibold sm:text-xl text-lg text-slate-800">
               -{getProductSingle?.title}-
             </h1>
           </div>
           <hr />
-          <span className="sm:text-[13px] text-[9px]">
+          <span className="sm:text-[13px] text-[9px] text-slate-700">
             {getProductSingle?.description}
           </span>
           <div className="sm:flex sm:w-full  ">
@@ -155,16 +155,16 @@ function SingleProduct() {
             <div className="sm:text-sm text-[12px]">Quantity</div>
             <div className="bg-white sm:text-sm border-[1px] border-slate-800 rounded-sm text-[12px]">
               <button
-                className="sm:px-2 px-1  border-r-[1px]  border-slate-700"
+                className="sm:px-2 px-2  border-r-[1px]  border-slate-700"
                 onClick={() => decrease()}
               >
                 -
               </button>
-              <span className="sm:text-sm sm:px-2 px-1 text-[12px]">
+              <span className="sm:text-sm sm:px-2 px-2 text-[12px]">
                 {quantity}
               </span>
               <button
-                className="sm:px-2 px-1  border-l-[1px]  border-slate-700"
+                className="sm:px-2 px-2  border-l-[1px]  border-slate-700"
                 onClick={() => increase()}
               >
                 +
@@ -173,16 +173,16 @@ function SingleProduct() {
           </div>
           <div className="flex gap-4">
             <div
-              className="flex cursor-pointer sm:px-4 gap-2 bg-primary items-center sm:py-2 text-white sm:text-sm text-[10px] px-2 h-max py-1"
+              className="flex cursor-pointer sm:px-4 gap-2 bg-primary items-center sm:py-2 text-white sm:text-sm text-[11px] px-2 h-max py-2"
               onClick={() => handleAddCart(getProductSingle, quantity)}
             >
               <FontAwesomeIcon icon={faCartArrowDown} />
-              <button className="sm:text-[12px] cursor-pointer text-[10px]">
+              <button className="sm:text-[12px] cursor-pointer text-[11px]">
                 Add to Cart
               </button>
             </div>
-            <div className="flex cursor-pointer sm:px-4 gap-2 bg-primary items-center sm:py-2 text-white sm:text-sm text-[10px] px-2 h-max py-1">
-              <span className="sm:text-[12px] text-[10px]">Buy Now</span>
+            <div className="flex cursor-pointer sm:px-4 gap-2 bg-primary items-center sm:py-2 text-white sm:text-sm text-[10px] px-2 h-max py-2">
+              <span className="sm:text-[12px] text-[11px]">Buy Now</span>
             </div>
           </div>
         </div>

@@ -91,7 +91,7 @@ const AppStore = create(
         } else {
           // find item same in cart
           if (qty == 0) {
-            alert("please add quantity");
+            alert("please tambahkan quantity");
             return;
           } else {
             const isItemInCart = AppStore.getState().cart.find(
@@ -123,6 +123,7 @@ const AppStore = create(
                   },
                 ],
               });
+              alert("product berhasil di tambahkan");
             }
           }
         }

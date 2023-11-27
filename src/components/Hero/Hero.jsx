@@ -20,11 +20,11 @@ function Hero() {
   return (
     <>
       <div className="w-screen sm:py-6 bg-white -translate-y-2 shadow-sm py-3 flex ">
-        <div className="sm:w-screen sm:h-96 flex justify-center -translate-x-2 h-max w-screen ">
+        <div className="sm:w-screen sm:h-96 flex justify-center -translate-x-2 h-max py-2 w-screen ">
           <Slider
             {...settings}
             style={{
-              width: "80%",
+              width: "90%",
               height: "100%",
               overflow: "hidden",
               // background: "red",

@@ -14,11 +14,11 @@ function Header() {
     <header className="bg-primary sm:min-w-full pt-2   w-screen">
       <div
         className="sm:flex lg:w-full sm:justify-between sm:pl-12 sm:pr-16 sm:py-2 sm:items-center
-        mx-auto w-max"
+        mx-auto w-max "
       >
         <div
           className="sm:flex sm:w-max sm:text-[12px] text-slate-100 sm:gap-2
-          text-[10px] flex gap-2"
+          text-[12px] flex gap-2 sm:mb-0 mb-2"
         >
           <span className="px-4 border-r-[1px] border-slate-100">
             Seller Center
@@ -30,23 +30,23 @@ function Header() {
             <FontAwesomeIcon icon={faFacebook} />
           </div>
         </div>
-        <div className="sm:flex sm:w-max sm:text-[12px] text-slate-100 sm:gap-2 text-[10px] flex justify-center w-full mt-1">
-          <span className="sm:px-4 sm:border-r-[1px] sm:text-[12px] border-slate-100 text-[10px]">
+        <div className="sm:flex sm:w-max sm:text-[12px] text-slate-100 sm:gap-2 text-[10px] flex justify-center w-full mt-1  items-center">
+          <span className="sm:px-4 sm:border-r-[1px] sm:text-[12px] border-slate-100 text-[13px]">
             <FontAwesomeIcon
               icon={faCircleQuestion}
-              className="sm:mx-2 sm:text-sm text-[10px] mx-2"
+              className="sm:mx-2 sm:text-sm text-[13px] mx-2"
             />
             Support
           </span>
           <button
-            className="px-4 sm:border-r-[1px] border-slate-100"
+            className="px-4 sm:border-r-[1px] text-[13px] border-slate-100"
             onClick={user != 0 ? logout : null}
           >
             {user ? "Logout" : "Register"}
           </button>
           {user.length !== 0 ? (
-            <div className="avatar absolute right-6 top-3 border-white sm:border-[2px] rounded-full">
-              <div className="sm:w-7 sm:rounded-full w-5 rounded-full ">
+            <div className="avatar sm:absolute sm:right-6 sm:top-3 border-white sm:border-[2px] rounded-full">
+              <div className="sm:w-7 sm:rounded-full w-7 rounded-full ">
                 <img src={user.photoURL} alt="profil" />
               </div>
             </div>
