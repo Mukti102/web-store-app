@@ -13,7 +13,7 @@ function Cart() {
     0
   );
   return (
-    <div className="sm:w-[80%] mx-auto w-[90%]">
+    <div className="sm:w-[80%] mx-auto   w-[97%]">
       <div className="sm:overflow-x-auto h-96 ">
         <table className="sm:table sm:table-sm table table-xs  shadow-md">
           <thead className="bg-white">
@@ -36,13 +36,13 @@ function Cart() {
                   <td className="text-slate-800 sm:text-sm text-[9px]">
                     {item.title}
                   </td>
-                  <td className="text-slate-800 sm:text-sm text-[10px]  text-center">
-                    Rp.{formatHarga(item.price)}
+                  <td className="text-slate-800 sm:text-sm text-[8px]  text-center">
+                    Rp{formatHarga(item.price)}
                   </td>
                   <td>
-                    <div className="bg-white w-max mx-auto sm:text-[12px] border-[1px] border-slate-800 rounded-sm text-[10px]">
+                    <div className="bg-white w-max mx-auto sm:text-[12px] border-[1px] border-slate-400 rounded-sm text-[10px]">
                       <button
-                        className="sm:px-2 border-r-[1px] font-semibold border-slate-800 sm:text-sm text-[10px] px-2"
+                        className="sm:px-2 border-r-[1px] font-semibold border-slate-400 sm:text-sm text-[10px] px-2"
                         onClick={() => decreaseQty(item.id)}
                       >
                         -
@@ -51,14 +51,14 @@ function Cart() {
                         {item.quantity}
                       </span>
                       <button
-                        className="sm:px-2 border-l-[1px] font-semibold border-slate-800 sm:text-sm text-[10px] px-2"
+                        className="sm:px-2 border-l-[1px] font-semibold border-slate-400 sm:text-sm text-[10px] px-2"
                         onClick={() => increaseQty(item.id)}
                       >
                         +
                       </button>
                     </div>
                   </td>
-                  <td className="text-center text-primary sm:text-[13px] font-semibold text-[10px]">
+                  <td className="text-center text-primary sm:text-[13px] font-semibold text-[9px]">
                     Rp{formatHarga(item.totalPrice)}
                   </td>
                   <td>
