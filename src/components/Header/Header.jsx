@@ -39,7 +39,7 @@ function Header() {
             Support
           </span>
           <button
-            className="px-4 sm:border-r-[1px] text-[13px] border-slate-100"
+            className="px-4 sm:border-r-[1px] sm:text-sm text-[13px] border-slate-100"
             onClick={user != 0 ? logout : null}
           >
             {user ? "Logout" : "Register"}
@@ -51,7 +51,7 @@ function Header() {
               </div>
             </div>
           ) : (
-            <button className="" onClick={login}>
+            <button className="sm:text-sm text-[13px]" onClick={login}>
               Login
             </button>
           )}
