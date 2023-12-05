@@ -19,8 +19,8 @@ function Hero() {
 
   return (
     <>
-      <div className="w-screen sm:py-6 bg-white -translate-y-2 shadow-sm py-3 flex ">
-        <div className="sm:w-screen sm:h-96 flex justify-center -translate-x-2 h-max py-2 w-screen ">
+      <div className="w-screen sm:py-6 bg-white -translate-y-2 shadow-sm py-3 flex out">
+        <div className="sm:w-screen sm:h-96 flex justify-center -translate-x-2 h-max py-2 w-screen  ">
           <Slider
             {...settings}
             style={{
@@ -28,9 +28,10 @@ function Hero() {
               height: "100%",
               overflow: "hidden",
               // background: "red",
+              outline: "none",
             }}
           >
-            <div className="w-1/2 bg-primary h-full border-2">
+            <div className="w-1/2 bg-primary h-full">
               <img src={Hero1} alt="habar" className="w-full h-full " />
             </div>
             <div className="w-1/2 bg-primary h-full overflow-hidden ">

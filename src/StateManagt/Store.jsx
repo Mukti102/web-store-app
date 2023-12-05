@@ -26,7 +26,7 @@ const AppStore = create(
           set({ user: res.user });
         });
       },
-      resetCart: () => set((state) => ({ cart: (state.cart = []) })),
+      clearCart: () => set((state) => ({ cart: (state.cart = []) })),
       handleDeleteCart: (id) => {
         let findIndex = "";
         AppStore.getState().cart.map((item, index) => {
@@ -94,9 +94,11 @@ const AppStore = create(
             alert("please tambahkan quantity");
             return;
           } else {
+            // check apakah product sudah ada di dalam cart
             const isItemInCart = AppStore.getState().cart.find(
               (item) => item.id === product.id
             );
+            // jika ada
             if (isItemInCart) {
               const tempCart = AppStore.getState().cart.map((item) => {
                 if (item.id === product.id) {
