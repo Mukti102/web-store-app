@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import axios from "axios";
 import { signInWithPopup } from "firebase/auth";
 import { getauth, provider } from "../config/firebase/Firebase";
-
+import { ToastContainer, toast } from "react-toastify";
 const AppStore = create(
   persist(
     (set) => ({
@@ -16,7 +16,7 @@ const AppStore = create(
       user: [],
       logout: () => {
         setTimeout(() => {
-          alert("logout succes");
+          toast.info("You Already Log Out");
           set({ user: "" });
           set((state) => ({ cart: (state.cart = []) }));
         }, 1000);
@@ -86,12 +86,14 @@ const AppStore = create(
       handleAddToCart: (product, qty) => {
         // cek is User have login
         if (AppStore.getState().user == 0) {
-          alert("Harap Login terlebih dahulu");
+          toast.info("Harap Login terlebih dahulu", { closeOnClick: false });
           return;
         } else {
           // find item same in cart
           if (qty == 0) {
-            alert("please tambahkan quantity");
+            toast.warning("please tambahkan quantity", {
+              position: "top-center",
+            });
             return;
           } else {
             // check apakah product sudah ada di dalam cart
@@ -125,7 +127,9 @@ const AppStore = create(
                   },
                 ],
               });
-              alert("product berhasil di tambahkan");
+              toast.success("Product berhasil di tambahkan", {
+                position: "top-center",
+              });
             }
           }
         }

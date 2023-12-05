@@ -3,6 +3,8 @@ import { useAppStore } from "../../StateManagt/Store";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { formatHarga } from "../../action/formatPrice";
+import AOS from "aos";
+import "aos/dist/aos.css";
 function Products() {
   const products = useAppStore((state) => state.products);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +24,9 @@ function Products() {
     };
     fetchData();
   }, [limit]);
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const seeMore = () => {
     setSeeMoreLoad(true);
     if (limit > 90) return;
@@ -35,7 +40,6 @@ function Products() {
     }
     setIsLoading(false);
   };
-  console.log(limit);
   return !isLoading ? (
     <>
       <div className="w-[90%] sm:mt-5 font-semibold text-slate-400 rounded-sm bg-white sm:px-3 sm:py-2 sm:h-10 relative flex items-center shadow-lg mx-auto before:w-1 before:h-full before:bg-primary before:absolute before:left-0 before:rounded-[1.7px] sm:text-lg text-[12px] px-3 py-1">
@@ -46,6 +50,7 @@ function Products() {
           return (
             <Link to={`/products/${item.id}`} key={item.id}>
               <div
+                data-aos="fade-up"
                 className="sm:w-52 cursor-pointer bg-white sm:pb-0 shadow-md rounded-sm  flex justify-center flex-col relative w-32"
                 key={item.id}
               >

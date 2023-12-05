@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { formatHarga } from "../../action/formatPrice";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Categories() {
   const { category } = useParams();
@@ -19,7 +21,6 @@ function Categories() {
         const res = await fetchCategoriesProducts(
           `https://dummyjson.com/products/category/${category}`
         );
-        console.log(res);
       } catch (error) {
         console.log("fetch category products", error);
       } finally {
@@ -27,6 +28,7 @@ function Categories() {
       }
     };
     fetchCategoryProduct();
+    AOS.init();
   }, [category]);
   return isLoading ? (
     <div className="w-max mx-auto">
@@ -34,7 +36,10 @@ function Categories() {
     </div>
   ) : (
     <div className="h-screen">
-      <div className="w-[90%] sm:mt-5 font-semibold text-slate-400 rounded-sm bg-white sm:px-3 sm:py-2 sm:h-10 relative flex items-center shadow-lg mx-auto before:w-1 before:h-full before:bg-primary before:absolute before:left-0 before:rounded-[1.7px] sm:text-lg text-[12px] px-3 py-1">
+      <div
+        data-aos="fade-right"
+        className="w-[90%] sm:mt-5 font-semibold text-slate-400 rounded-sm bg-white sm:px-3 sm:py-2 sm:h-10 relative flex items-center shadow-lg mx-auto before:w-1 before:h-full before:bg-primary before:absolute before:left-0 before:rounded-[1.7px] sm:text-lg text-[12px] px-3 py-1"
+      >
         <h1>{category}</h1>
       </div>
       <div className="sm:w-[90%] flex px-2 flex-wrap sm:gap-5 justify-center mx-auto sm:my-8 my-4 gap-3">
@@ -42,6 +47,7 @@ function Categories() {
           return (
             <Link to={`/products/${item.id}`} key={item.id}>
               <div
+                data-aos="fade-left"
                 className="sm:w-52 cursor-pointer bg-white sm:pb-0 shadow-md rounded-sm  flex justify-center flex-col relative w-32"
                 key={item.id}
               >

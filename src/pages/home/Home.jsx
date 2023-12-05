@@ -6,7 +6,6 @@ function Home() {
   const reset = useAppStore((state) => state.resetCart);
   const cart = useAppStore((state) => state.cart);
   // reset();
-  console.log(cart);
   return (
     <>
       <Hero />

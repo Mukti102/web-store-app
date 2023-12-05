@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 function InputSearch() {
   const [isSearch, setIsSearch] = useState(true);
-  console.log(isSearch);
   return (
     <div className="sm:w-[80%] sm:py-3 py-2 w-[60%] mx-1">
       <div

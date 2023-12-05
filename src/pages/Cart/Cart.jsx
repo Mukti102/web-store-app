@@ -8,6 +8,7 @@ function Cart() {
   const deleteCart = useAppStore((state) => state.handleDeleteCart);
   const increaseQty = useAppStore((state) => state.increaseQty);
   const decreaseQty = useAppStore((state) => state.decreaseQty);
+  const clearCart = useAppStore((state) => state.clearCart);
   const amountPriceAllCart = carts.reduce(
     (accumulator, currentValue) => accumulator + currentValue.totalPrice,
     0
@@ -75,7 +76,10 @@ function Cart() {
           </tbody>
         </table>
         <div className="w-full bg-white flex justify-between  py-2 px-3 mt-5 shadow-md">
-          <button className="btn-xs py-1 border-[1.3px]  border-primary  flex items-center gap-2 h-max text-primary hover:bg-primary sm:text-sm text-[10px] hover:text-white">
+          <button
+            onClick={clearCart}
+            className="btn-xs py-1 border-[1.3px]  border-primary  flex items-center gap-2 h-max text-primary hover:bg-primary sm:text-sm text-[10px] hover:text-white"
+          >
             <FontAwesomeIcon icon={faTrash} />
             <div className="sm:text-sm text-[9px]">CLEAR CART</div>
           </button>

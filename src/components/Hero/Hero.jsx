@@ -4,6 +4,9 @@ import Slider from "react-slick";
 import Hero1 from "../../assets/hero2.jpg";
 import Hero3 from "../../assets/hero3.jpg";
 import hero2 from "../../assets/hero1.jpg";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 // import Products from "../Products/Products";
 function Hero() {
   var settings = {
@@ -16,10 +19,15 @@ function Hero() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <>
-      <div className="w-screen sm:py-6 bg-white -translate-y-2 shadow-sm py-3 flex out">
+      <div
+        data-aos="fade-down"
+        className="w-screen sm:py-6 bg-white -translate-y-2 shadow-sm py-3 flex out"
+      >
         <div className="sm:w-screen sm:h-96 flex justify-center -translate-x-2 h-max py-2 w-screen  ">
           <Slider
             {...settings}

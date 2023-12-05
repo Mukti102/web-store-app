@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useAppStore } from "../../StateManagt/Store";
 import { useParams } from "react-router";
 import { formatHarga } from "../../action/formatPrice";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function SingleProduct() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
@@ -53,6 +55,7 @@ function SingleProduct() {
     // Memanggil fungsi fetchData yang bersifat asynchronous
     fetchData();
   }, [id, fetchAsyncSingleProduct]);
+  useEffect(() => {}, []);
   console.log("SINGLE PRODUCT", getProductSingle);
   return isLoading ? (
     <div className="loading loading-infinity loading-lg text-primary absolute top-[50%] left-[50%] translate-y-[50%]"></div>

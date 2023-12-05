@@ -5,6 +5,8 @@ import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../Navbar/Navbar";
 import Sidebare from "../Sidebar/Sidebare";
 import { useAppStore } from "../../StateManagt/Store";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Header() {
   const login = useAppStore((state) => state.loginWithGoogle);
   const user = useAppStore((state) => state.user);
@@ -12,6 +14,18 @@ function Header() {
 
   return (
     <header className="bg-primary sm:min-w-full pt-2   w-screen">
+      <ToastContainer
+        position="top-right"
+        autoClose={500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div
         className="sm:flex lg:w-full sm:justify-between sm:pl-12 sm:pr-16 sm:py-2 sm:items-center
         mx-auto w-max "
