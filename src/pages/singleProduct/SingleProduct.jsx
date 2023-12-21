@@ -65,7 +65,7 @@ function SingleProduct() {
         <div className="w-full sm:h-[70%] h-full overflow-hidden">
           <img
             src={
-              getProductSingle?.thumbnail ??
+              getProductSingle?.thumbnail ||
               "https://tse3.mm.bing.net/th?id=OIP.2JkSNigfTvmaMwVkzc7A9wHaHa&pid=Api&P=0&h=180"
             }
             className="sm:w-full h-full sm:h-max object-center"
