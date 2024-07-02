@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppStore } from "../../StateManagt/Store";
 import "./sidebar.css";
 import { Link } from "react-router-dom";
@@ -7,12 +7,12 @@ function Sidebare() {
   const sidebar = useAppStore((state) => state.isSidebar);
   const categories = JSON.parse(localStorage.getItem("appStore")).state
     .categories;
+  const [categori, setCtegori] = useState([]);
   const handleSidebar = useAppStore((state) => state.handleSidebar);
   const fetchCategories = useAppStore((state) => state.fetchCategoriesTitle);
   useEffect(() => {
     fetchCategories("https://dummyjson.com/products/categories");
   }, []);
-
   return (
     <div
       className={
@@ -32,9 +32,13 @@ function Sidebare() {
       <div className="w-full sm:h-screen sm:overflow-y-scroll scroll bg-slate-50 pb-5 sm:px-3 h-max">
         {categories?.data?.map((item, index) => {
           return (
-            <Link to={`/category/${item}`} key={index} onClick={handleSidebar}>
+            <Link
+              to={`/category/${item.name}`}
+              key={index}
+              onClick={handleSidebar}
+            >
               <div className="py-1 sm:mt-5 border-b-[1.9px] cursor-pointer capitalize hover:text-primary flex items-center border-slate-200 sm:text-sm text-[11px] text-slate-600 my-1">
-                {item}
+                {item.name}
               </div>
             </Link>
           );

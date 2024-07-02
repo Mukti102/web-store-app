@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="w-full bg-primary flex flex-col justify-center items-center gap-2 py-4 text-slate-50 sm:static">
+    <footer className="w-full bg-primary absolute bottom-0 flex flex-col justify-center items-center gap-2 py-4 text-slate-50 sm:static">
       <div className="w-max flex gap-3 uppercase  sm:text-sm text-[12px]">
         <h1 className="w-max sm:px-4 px-2 border-r-[1px] border-slate-200">
           Privacy Poucy
